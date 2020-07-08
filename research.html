@@ -72,11 +72,78 @@
 
 
 
+<h1><b> Machine Learning in Wireless Networks </b></h1>
+<br />
+<p style="text-align:justify"> 
+Federated learning is a distributed learning framework that allows machine learning in mobile environments, while protecting user privacy and providing robustness against user dropouts. 
+The global model is maintained at a central server, while the training data is kept on the user device. Rather than sending their local datasets to the server, users locally update the global model. 
+The local updates are aggregated in a privacy-preserving protocol, which is called secure aggregation, at the server, which is then used to update the global model. 
+Secure aggregation ensures that the local update of each user is kept private, both from the server and the other users. 
+The global model is then pushed back to the mobile users for inference. 
 
 
 
+<p style="text-align:center;"><img src="images/federated5.png" height="190px" style="padding:5px;" />  </p >   
 
-<h1><b>Scalable and Privacy-Aware Distributed Information Processing</b></h1>
+
+<p style="text-align:justify">A major bottleneck in scaling federated learning to a large number of users is the overhead of secure model aggregation, which grows quadratically with the number of users. 
+
+We have proposed a novel secure aggregation framework, named Turbo-Aggregate, that in a network with N users guarantees a secure aggregation overhead of O(NlogN), while tolerating up to a user dropout rate of 50&percnt;. 
+Turbo-aggregate employs a multi-group circular strategy for efficient model aggregation, and leverages additive secret sharing and novel coding techniques for injecting aggregation redundancy in order to handle user dropouts while guaranteeing user privacy. 
+Our experiments demonstrate that Turbo-aggregate achieves a total running time that grows almost linear in the number of users, and provides up to 40x speedup over the state-of-the-art protocols in a network with 200 mobile users.
+
+ </p >
+       
+
+
+<p style="text-align:justify"> <b>Related publications:</b> <br /></p >
+
+
+<p style="text-align:justify">Jinhyun So, Basak Guler, A. Salman Avestimehr, &nbsp;<a href="https://arxiv.org/pdf/2002.04156.pdf">Turbo-Aggregate: Breaking the Quadratic Aggregation Barrier in Secure Federated Learning</a>, available on arXiv:2002.04156v2. </p >
+
+
+
+<br /> 
+
+
+
+<h1><b> Privacy-preserving Distributed Machine Learning </b></h1>
+<br />
+<p style="text-align:justify"> 
+How to train a machine learning model in a distributed network while keeping the data private and secure? 
+My research builds fast and scalable frameworks to address this problem. 
+These frameworks keep both the data and the model information-theoretically private, 
+while allowing efficient parallelization of training across distributed workers.
+
+ </p >
+<p style="text-align:center;"><img src="images/systemv7.png" height="250px" style="padding:5px;" />  </p >   
+
+<p style="text-align:justify"> 
+Due to the typically large volume of data and complexity of models, training is a compute and storage intensive task. Furthermore,  training is often be done on sensitive data, such as healthcare records, browsing history, or financial transactions, which brings important security and privacy implications. This creates a challenging dilemma. On the one hand, due to its complexity, it is often desirable to outsource the training task to more capable computing platforms, such as the cloud. On the other hand, the training dataset is often sensitive and particular care should be taken to protect its privacy against potential breaches in such platforms. This dilemma gives rise to the following problem, how can we offload the training task to a distributed computing platform, while maintaining the privacy of the dataset? 
+
+ </p >
+
+<p style="text-align:justify"> 
+To address this challenge, we introduce novel framework to enable fast distributed training over a private dataset. Our framework leverages coding and information-theoretic approaches for secret sharing the dataset and model parameters, which reduces the communication overhead and significantly speeds up the training time. As a result, our framework can scale to a significantly larger number of workers, by decreasing the per-worker computation load gradually as more and more workers are added in the system. 
+Experimental evaluations for image classification on the Amazon EC2 cloud demonstrate significant speedup over the baseline protocols, while providing comparable accuracy to conventional logistic regression training. 
+
+ </p >
+       
+
+
+<p style="text-align:justify"> <b>Related publications:</b> <br /></p >
+
+
+<p style="text-align:justify">Jinhyun So, Basak Guler, A. Salman Avestimehr, and Payman Mohassel, &nbsp;<a href="https://arxiv.org/pdf/1902.00641.pdf">CodedPrivateML: A Fast and Privacy-Preserving Framework for Distributed Machine Learning</a>, available on arXiv:1902.00641. </li>       
+   </p >
+
+
+
+<br /> 
+
+
+
+<h1><b>Scalable and Privacy-Aware Distributed Graph Processing</b></h1>
 <br />
 <p style="text-align:justify"> 
 Graph topologies are important tools for modeling real-world phenomena, such as the topology of the World-Wide-Web, social and biological interactions, or the connectivity patterns in sensor networks. 
