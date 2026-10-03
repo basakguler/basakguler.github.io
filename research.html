@@ -69,126 +69,309 @@
 
 
 
+
+
 		<div id="copy" style="padding:20px; width:600px">
 
 
+<p style="text-align:justify">
+My research focuses on trustworthy and resource-efficient machine learning
+over distributed and networked systems. I am particularly interested in how
+learning systems can provide meaningful guarantees about the use of data,
+remain secure during adaptation and collaborative training, and operate
+efficiently under communication and computation constraints.
+</p>
 
 
-<h1><b> Distributed Machine Learning, Federated Learning, Machine Learning in Wireless Networks </b></h1>
+
+<h1><b>Source-Free Machine Unlearning and Model Adaptation </b></h1>
+
+
+<p style="text-align:justify">
+As machine learning models are increasingly trained on large, distributed, and
+continuously changing datasets, an important question is how a trained model
+can remove the influence of data that should no longer be retained, such as data that should 
+no longer be retained due to privacy or copyright concerns, or data that is outdated, incorrect, 
+or no longer representative to the downstream task.
+My recent research studies machine unlearning, with a particular focus
+on settings where there is limited information about the original training process, 
+such as when the original training data is no longer available.
+We develop source-free unlearning methods and certified approaches that aim
+to remove designated training information while preserving model utility. 
+
+</p>
+
+<p style="text-align:justify">
+<b>Related publications:</b>
+
+
 <br />
+<br />
+
+Umit Yigit Basaran, Sk Miraj Ahmed, Amit K. Roy-Chowdhury, Basak Guler,  <a href="https://basakguler.github.io/Unlearning-ICML25.pdf">
+A Certified Unlearning Approach without Access to Source Data</a> (ICML 2025).
+
+<br />
+<br />
+
+Sk Miraj Ahmed, Umit Yigit Basaran, Dripta S. Raychaudhuri, Arindam Dutta, Rohit Kundu, Fahim Faisal Niloy, Basak Guler, Amit Roy-Chowdhury, <a href="https://basakguler.github.io/Unlearning-CVPR25.pdf">
+Towards Source-Free Machine Unlearning</a> (CVPR 2025) 
+
+
+</p>
+
+
+
+
+
+<h1><b>Privacy and Security of Parameter-Efficient Adaptation for Foundation Models </b></h1>
+
+<br />
+
+<p style="text-align:justify">
+A second direction we study is privacy and security risks that arise when large pretrained 
+models are adapted using private data. In particular, we investigate whether 
+information about fine-tuning data can be recovered from shared model
+updates, including in parameter-efficient fine-tuning methods such as LoRA. 
+Our recent work develops gradient-inversion attacks that expose previously
+unrecognized privacy vulnerabilities in distributed and federated fine-tuning. 
+
+
+</p>
+
+<p style="text-align:justify">
+<b>Related publications:</b>
+
+<br />
+<br />
+
+Hasin Us Sami, Swapneel Sen,  Basak Guler,  <a href="https://proceedings.mlr.press/v300/sami26a.html">
+MineGrad: Gradient Inversion Attacks on LoRA Fine-Tuning</a> (AISTATS 2026) 
+
+
+<br />
+<br />
+
+Hasin Us Sami, Swapneel Sen,  Amit K. Roy-Chowdhury, Srikanth Krishnamurthy, Basak Guler, <a href="https://basakguler.github.io/GradientInversion-CVPR2025.pdf">
+Gradient Inversion Attacks on Parameter-Efficient Fine-Tuning</a> (CVPR 2025)
+
+</p>
+
+
+
+
+
+<h1><b>Federated Learning under Resource Constraints and User Heterogeneity </b></h1>
+
+<br />
+
 <p style="text-align:justify"> 
-Federated learning is a distributed learning framework that allows machine learning in mobile environments, while protecting user privacy and providing robustness against user dropouts. 
-The global model is maintained at a central server, while the training data is kept on the user device. Rather than sending their local datasets to the server, users locally update the global model. 
-The local updates are aggregated in a privacy-preserving protocol, which is called secure aggregation, at the server, which is then used to update the global model. 
-Secure aggregation ensures that the local update of each user is kept private, both from the server and the other users. 
-The global model is then pushed back to the mobile users for inference. 
+
+
+Federated learning is a distributed learning framework that allows on-device machine learning in mobile environments. 
+The global model is typically maintained by a central server, while the training data is kept on the user device. Rather than sending their local datasets to the server, users locally update the global model. 
+Secure aggregation allows local updates to be aggregated at the server to update the global model, but without learning the individual updates. 
+Unlike conventional multi-party computing mechanisms, secure aggregation should be designed to tolerate unknown user dropouts that may occur frequently in wireless networks. 
+The global model is then pushed back to the mobile users for the next training round and/or inference. 
+
+
+Federated learning must often operate under stringent communication,
+computation, and privacy constraints. Our research develops 
+scalable federated-learning and secure aggregation methods that explicitly account for these limitations. 
+We study how communication constraints, heterogeneous users and data, wireless resources, and security
+requirements affect collaborative learning, and design algorithms that
+remain effective under these different forms of heterogeneity. 
+In this line of work we investigated secure aggregation for personalized and clustered federated learning, submodel training, and model sparsification.  
 
 
 
-<p style="text-align:center;"><img src="https://basakguler.github.io/images/federated5.png" height="190px" style="padding:5px;" />  </p >   
 
 
-<p style="text-align:justify">A major bottleneck in scaling federated learning to a large number of users is the overhead of secure model aggregation, which grows quadratically with the number of users. 
 
-We have proposed a novel secure aggregation framework, named Turbo-Aggregate, that in a network with N users guarantees a secure aggregation overhead of O(NlogN), while tolerating up to a user dropout rate of 50&percnt;. 
-Turbo-aggregate employs a multi-group circular strategy for efficient model aggregation, and leverages additive secret sharing and novel coding techniques for injecting aggregation redundancy in order to handle user dropouts while guaranteeing user privacy. 
-Our experiments demonstrate that Turbo-aggregate achieves a total running time that grows almost linear in the number of users, and provides up to 40x speedup over the state-of-the-art protocols in a network with 200 mobile users.
+<p style="text-align:center;"><img src="https://basakguler.github.io/images/federated5.png" height="190px" style="padding:5px;" />  </p > 
 
- </p >
+  
+
+<p style="text-align:justify"> <b>Related publications:</b> 
+
+
+<br />
+<br />
+    Hasin Us Sami, Basak Guler <a href="https://basakguler.github.io/SG_TCom_2024_sparse.pdf"> Secure Gradient Aggregation with Sparsification for Resource-Limited Federated Learning</a>, IEEE Transactions on Communications, Aug. 2024.       
+  
+ 
+ <br />
+<br />
+
+    Hasin Us Sami, Basak Guler  <a href="https://basakguler.github.io/SG_TCOM_2024.pdf">Secure Aggregation for Clustered Federated Learning with Passive Adversaries</a>, IEEE Transactions on Communications, Feb. 2024.        
+  
+
+ <br />
+  <br />
+
+    Hasin Us Sami, Basak Guler, <a href="https://basakguler.github.io/SG2_ISIT_2024.pdf">Secure Submodel Aggregation for Resource-Aware Federated Learning</a>, ISIT International Symposium on Information Theory, ISIT'2024.       
+  <br />
+   <br />
+  
+   Hasin Us Sami, Basak Guler, <a href="https://basakguler.github.io/SG1_ISIT_2024.pdf">Sparsity Based Secure Gradient Aggregation for Resource-Constrained Federated Learning</a>, ISIT International Symposium on Information Theory, ISIT'2024.      
+
+  <br />
+  <br />
+
+Hasin Us Sami, Basak Guler, <a href="https://basakguler.github.io/SG_ISIT_2023.pdf">Secure Aggregation for Clustered Federated Learning</a>, ISIT International Symposium on Information Theory, ISIT'2023.  
+
+
+
+  </p >
        
 
 
-<!-- 
-<p style="text-align:justify"> <b>Related publications:</b> <br /></p >
-
-<p style="text-align:justify">Jinhyun So, Ramy E. Ali, Basak Guler, Jiantao Jiao, A. Salman Avestimehr, <a href="https://arxiv.org/pdf/2106.03328.pdf">Securing Secure Aggregation: Mitigating Multi-Round Privacy Leakage in Federated Learning</a>, 2021. </p >    
-<p style="text-align:justify">Jinhyun So, Basak Guler, A. Salman Avestimehr, <a href="https://arxiv.org/pdf/2002.04156.pdf">Turbo-Aggregate: Breaking the Quadratic Aggregation Barrier in Secure Federated Learning</a>, IEEE Journal on Selected Areas in Information Theory: Privacy and Security of Information Systems, 2021. </p >
-<p style="text-align:justify">Jinhyun So, Basak Guler, A. Salman Avestimehr, <a href="https://arxiv.org/abs/2007.11115">BREA: Byzantine-Resilient Secure Federated Learning</a>, IEEE Journal in Selected Areas in Communications: Machine Learning in Communications and Networks, 2020. </p >    
-
- -->
-
-
-<br /> 
 
 
 
-<h1><b> Secure and Privacy-preserving Machine Learning </b></h1>
+
+
+<h1><b> Secure and Privacy-preserving Distributed Learning </b></h1>
 <br />
-<p style="text-align:justify"> 
-How to train a machine learning model in a distributed network while keeping the data private and secure? 
-My research builds fast and scalable frameworks to address this problem. 
-These frameworks keep both the data and the model information-theoretically private, 
-while allowing efficient parallelization of training across distributed workers.
+<p style="text-align:justify">  
+A longstanding direction of my research is the design of distributed learning methods that provide formal privacy guarantees while remaining scalable.
+I develop information-theoretic approaches for secure multi-party learning, with particular
+emphasis on reducing communication complexity, supporting multiple rounds of
+training, and remaining robust to client dropouts.
+
 
  </p >
+ 
 <p style="text-align:center;"><img src="https://basakguler.github.io/images/systemv7.png" height="250px" style="padding:5px;" />  </p >   
 
-<p style="text-align:justify"> 
-Due to the typically large volume of data and complexity of models, training is a compute and storage intensive task. Furthermore,  training is often be done on sensitive data, such as healthcare records, browsing history, or financial transactions, which brings important security and privacy implications. This creates a challenging dilemma. On the one hand, due to its complexity, it is often desirable to outsource the training task to more capable computing platforms, such as the cloud. On the other hand, the training dataset is often sensitive and particular care should be taken to protect its privacy against potential breaches in such platforms. This dilemma gives rise to the following problem, how can we offload the training task to a distributed computing platform, while maintaining the privacy of the dataset? 
-
- </p >
-
-<p style="text-align:justify"> 
-We introduce a novel framework to enable fast distributed training over a private dataset. Our framework leverages coding and information-theoretic approaches for secret sharing the dataset and model parameters, which reduces the communication overhead and significantly speeds up the training time. As a result, our framework can scale to a significantly larger number of workers, by decreasing the per-worker computation load gradually as more and more workers are added in the system. 
-Experimental evaluations for image classification on the Amazon EC2 cloud demonstrate significant speedup over the baseline protocols, while providing comparable accuracy to conventional logistic regression training. 
-
- </p >
-       
 
 
-<!-- 
-<p style="text-align:justify"> <b>Related publications:</b> <br /></p >
 
-<p style="text-align:justify">Jinhyun So, Basak Guler, A. Salman Avestimehr, <a href="https://papers.nips.cc/paper/2020/file/5bf8aaef51c6e0d363cbe554acaf3f20-Paper.pdf">A Scalable Approach for Privacy-Preserving Collaborative Machine Learning</a>, Conference on Neural Information Processing Systems, NeurIPS 2020. </p >       
+<p style="text-align:justify">
+<b>Related publications:</b>
 
-<p style="text-align:justify">Jinhyun So, Basak Guler, A. Salman Avestimehr, <a href="https://arxiv.org/pdf/1902.00641.pdf">CodedPrivateML: A Fast and Privacy-Preserving Framework for Distributed Machine Learning</a>, IEEE Journal on Selected Areas in Information Theory: Privacy and Security of Information Systems, 2021. </p >       
+<br />
+<br />
+
+
+Xingyu Lu, Umit Yigit Basaran, Basak Guler, <a href="https://basakguler.github.io/PrivateNeuralLearning.pdf">Scalable Multi-Round Multi-Party Privacy-Preserving Neural Network Training</a>, IEEE Transactions on Information Theory, Aug. 2024. 
+
+<br />
+<br />
+
+Xingyu Lu, Hasin Us Sami, Basak Guler, <a href="https://basakguler.github.io/LSG_IT_2023.pdf">Privacy-preserving Collaborative Learning with Linear Communication Complexity</a>, IEEE Transactions on Information Theory, Dec. 2023.
+  
+<br />
+<br />
+
+  
+ Xingyu Lu, Hasin Us Sami, Basak Guler, <a href="https://basakguler.github.io/LSG_TCOM_2023.pdf">SCALR: Communication-Efficient Secure Multi-Party Logistic Regression</a>, IEEE Transactions on Communications, Aug. 2023.
+
+<br />
+<br />
+
+Umit Yigit Basaran, Xingyu Lu, Basak Guler, <a href="https://basakguler.github.io/BLG_FL_ICML_2023.pdf">Beyond Secure Aggregation: Scalable Multi-Round Secure Collaborative Learning</a>, FL-ICML Workshop on Federated Learning and Analytics in Practice: Algorithms, Systems, Applications, and Opportunities, in conjunction with International Conference on Machine Learning, ICML'2023. 
+
+<br />
+<br />
+
+Xingyu Lu, Basak Guler, <a href="https://basakguler.github.io/LG_ISIT_2023.pdf">Breaking the Quadratic Communication Overhead of Secure Multi-Party Neural Network Training</a>, ISIT International Symposium on Information Theory, ISIT'2023.
+
+<br />
+<br />
+
+Jinhyun So, Ramy E. Ali, Basak Guler, Jiantao Jiao, A. Salman Avestimehr, <a href="https://arxiv.org/pdf/2106.03328.pdf">Securing Secure Aggregation: Mitigating Multi-Round Privacy Leakage in Federated Learning</a>, AAAI Conference on Artificial Intelligence, AAAI 2023.
+
+<br />
+<br />
+
+Jinhyun So, Basak Guler, A. Salman Avestimehr, <a href="https://arxiv.org/pdf/2002.04156.pdf">Turbo-Aggregate: Breaking the Quadratic Aggregation Barrier in Secure Federated Learning</a>, IEEE Journal on Selected Areas in Information Theory: Privacy and Security of Information Systems, Jan. 2021.
+
+<br />
+<br />
+
+Jinhyun So, Basak Guler, A. Salman Avestimehr, <a href="https://arxiv.org/pdf/1902.00641.pdf">CodedPrivateML: A Fast and Privacy-Preserving Framework for Distributed Machine Learning</a>, IEEE Journal on Selected Areas in Information Theory: Privacy and Security of Information Systems, Jan. 2021
+
+<br />
+<br />
+
+Jinhyun So, Basak Guler, A. Salman Avestimehr, <a href="https://papers.nips.cc/paper/2020/file/5bf8aaef51c6e0d363cbe554acaf3f20-Paper.pdf">A Scalable Approach for Privacy-Preserving Collaborative Machine Learning</a>, Conference on Neural Information Processing Systems (NeurIPS 2020).
+
+<br />
+<br />
+
+
+Jinhyun So, Basak Guler, A. Salman Avestimehr, <a href="https://arxiv.org/abs/2007.11115">BREA: Byzantine-Resilient Secure Federated Learning</a>, IEEE Journal in Selected Areas in Communications: Machine Learning in Communications and Networks, Oct. 2020.
+
+
+
+
+</p>
+
+
+
+
+
+
+
+
+
+
+<br /> 
+
+
+
+<h1><b>Learning and Secure Computation over Wireless and Edge Networks </b></h1>
+
+
+<p style="text-align:justify">
+Another direction of our work studies how distributed learning and secure
+computation interact with the physical constraints of wireless and edge
+networks. In this line of research communication is not treated merely as an abstract 
+bottleneck, but instead we jointly consider learning, communication, computation, and resource
+allocation by taking into account the physical constraints of the wireless medium. 
+
+
+</p>
+
+<p style="text-align:justify">
+<b>Related publications:</b>
+
+<br />
+<br />
+
+     Hasin Us Sami, Basak Guler, <a href="https://basakguler.github.io/SG_TWC_2023.pdf">Over-the-air Clustered Federated Learning</a>, IEEE Transactions on Wireless Communications, Dec. 2023.       
+  
+  
+
+<br />
+<br />
+
+Yushu Yan, Kevin Chan, Ananthram Swami, Basak Guler, <a href="https://basakguler.github.io/SecureComputationOffloading.pdf">Resource-Aware Secure Multi-Party Edge Computation Offloading</a>, IEEE Transactions on Communications, June. 2026.
+
+<br />
+<br />
+
+Yushu Yan, Basak Guler, Resource-Aware Secure Computation Offloading,  IEEE International Conference on Communications, ICC 2025. 
+
+<br />
+<br />
+
+Yushu Yan, Xiangyu Chang, Amit Roy-Chowdhury, Srikanth Krishnamurthy, Ananthram Swami, Basak Guler, <a href="https://basakguler.github.io/Yan-Milcom24.pdf">Clustered Federated Learning for Massive MIMO Power Allocation</a>,  IEEE Military Communications Conference (MILCOM), 2024. 
+
+<br />
+<br />
+
+Yushu Yan, Xiangyu Chang, Basak Guler, Amit Roy-Chowdhury, Srikanth Krishnamurthy, Ananthram Swami, <a href="https://basakguler.github.io/Yan-Asilomar23.pdf">Federated Learning for Massive MIMO Power Allocation</a>, Asilomar Conference on Signals, Systems, and Computers, 2023.
+
+<br />
+<br />
+
+  
+Hasin Us Sami, Basak Guler, <a href="https://basakguler.github.io/SG_ICASSP_2021.pdf">Over-the-air Personalized Federated Learning</a>, International Conference on Acoustics, Speech, and Signal Processing, ICASSP'21.  
  
- -->
 
-   </p >
-
-
-
-
-
-<br /> 
-
-
-
-<h1><b>Scalable and Privacy-Aware Distributed Graph Processing</b></h1>
-<br />
-<p style="text-align:justify"> 
-Graph topologies are important tools for modeling real-world phenomena, such as the topology of the World-Wide-Web, social and biological interactions, or the connectivity patterns in sensor networks. 
-As such, modern applications often require processing large volumes of information that is represented in the form of a graph, such as PageRank, a widely used graph algorithm for ranking webpages in search engines, or semi-supervised learning and graph signal filtering, an important building block of graph neural networks. 
-Distributed computing provides an effective means of scaling-up large-scale graph processes, by distributing the graph storage and computation load across multiple processors (workers) in the cloud. </p>
-
-
-
-
-<p style="text-align:center;"><img src="https://basakguler.github.io/images/graphproc.png" height="190px" style="padding:5px;" />  </p >   
-
-
-<p style="text-align:justify">However, this also requires extensive communication and coordination between the processors, which can take up to 50% of the overall execution time, making the  </b>inter-processor communication load</b> a major bottleneck in scalability. I design scalable and privacy-aware distributed computing frameworks for large-scale graph and information processing applications, using coding and information theory principles. 
- </p >
-       
-
-
-<!-- 
-<p style="text-align:justify"> <b>Related publications:</b> <br /></p >
-
-
-<p style="text-align:justify">Basak Guler, A. Salman Avestimehr, Antonio Ortega, <a href="https://basakguler.github.io/BG-TSIPN-20.pdf">TACC: Topology-Aware Coded Computing for Distributed Graph Processing</a>, IEEE Transactions on Signal and Information Processing over Networks, vol. 6, pp. 508-525, May 2020.</p >
-
-
-<p style="text-align:justify">Basak Guler, A. Salman Avestimehr, Antonio Ortega, <a href="https://basakguler.github.io/BG-ICASSP-19-Topology.pdf">A Topology-Aware Coding Framework for Distributed Graph Processing</a>, International Conference on Acoustics, Speech, and Signal Processing, ICASSP'19, Brighton, UK, May. 2019. </p >        
-   
-<p style="text-align:justify">Basak Guler, Ajinkya Jayawant, A. Salman Avestimehr, Antonio Ortega, <a href="https://basakguler.github.io/BG-ICASSP-19-Robust.pdf">Robust Graph Signal Sampling</a>, International Conference on Acoustics, Speech, and Signal Processing, ICASSP'19, Brighton, UK, May. 2019. </p >  
-   
-<p style="text-align:justify">Basak Guler, A. Salman Avestimehr, Antonio Ortega, <a href="https://basakguler.github.io/BG-MLSP-19.pdf">Privacy-Aware Distributed Graph-Based Semi-Supervised Learning</a>, IEEE International Workshop on Machine Learning for Signal Processing, MLSP'19, Pittsburgh, PA, Oct. 2019.</p >  
-
- -->
-
-<br /> 
+</p>
 
 
 
@@ -198,50 +381,63 @@ Distributed computing provides an effective means of scaling-up large-scale grap
 
 
 
-        <h1><b>Network Information Theory</b></h1>
+        <h1><b>Network Information Theory and Joint Source-Channel Coding </b></h1>
 <br />
 
-<p style="text-align:justify"> 
-Another focus of my research is understanding the information-theoretic performance limits of multi-user context-aware  communication networks. 
+<p style="text-align:justify">  
+My earlier research studied information-theoretic performance limits of multi-user and context-aware communication networks, including lossy distributed source-channel coding in the presence of side information. 
 This is inspired by scenarios in which 
 interacting parties are influenced by side information while interpreting the messages, such as external information resources or knowledge bases representing the unique backgrounds, characteristics, or biases. To do so, my research explores the fundamental limits of the amount of information that can be transferred with a fidelity criterion in a multi-user communication network when interacting parties have access to side information. 
 
-
 </p >
+
 <p style="text-align:center;"><img src="https://basakguler.github.io/images/multiuser.png" height="130px" style="padding:5px;" />  </p >   
 
 
 
-<p style="text-align:justify"> I investigate the impact of shared or differing knowledge bases on the fundamental performance limits when multiple parties transfer information through a noisy channel. </p >
+<p style="text-align:justify">
+<b>Related publications:</b>
 
-<!-- 
-<p style="text-align:justify"> <b>Related publications:</b> <br /></p >
-
-<p style="text-align:justify">Basak Guler, Deniz G&uuml;nd&uuml;z, and Aylin Yener,<a href="https://basakguler.github.io/BG_IT_18.pdf">Lossy Transmission of Correlated Sources over a Multiple Access Channel: Necessary Conditions and Separation Results</a>, IEEE Transactions on Information Theory, 64(9), pp. 6081-6097, Sep. 2018.  </p >
-
-
-<p style="text-align:justify">Basak Guler, Deniz G&uuml;nd&uuml;z, Aylin Yener,<a href="https://basakguler.github.io/BG_ISIT_17.pdf"> On the Necessary Conditions for Transmitting Correlated Sources over a Multiple Access Channel</a>, Proceedings of the IEEE International Symposium on Information Theory, ISIT'17, Aachen, Germany, Jun. 2017. </p >
-
-<p style="text-align:justify"> Basak Guler, Deniz G&uuml;nd&uuml;z, Aylin Yener,<a href="https://basakguler.github.io/BG_ISIT_16.pdf">On Lossy Transmission of Correlated Sources over a Multiple Access Channel</a>, Proceedings of the IEEE International Symposium on Information Theory, ISIT'16, Barcelona, Spain, Jul. 2016. </p >
-
-
-<p style="text-align:justify">Basak Guler, Aylin Yener, Ebrahim MolavianJazi, Prithwish Basu, Ananthram Swami, Carl Andersen,<a href="https://basakguler.github.io/BG_DCC_2016.pdf">Interactive Function Compression with Asymmetric Priors</a>, Proceedings of the IEEE Data Compression Conference, DCC'16, Snowbird, UT, Mar. 2016. </p >
-
-<p style="text-align:justify">Basak Guler, Ebrahim MolavianJazi, Aylin Yener,<a href="https://basakguler.github.io/BG_ISIT_15.pdf">Remote Source Coding with Two-Sided Information</a>, Proceedings of the IEEE International Symposium on Information Theory, ISIT'15, Hong Kong, Jun. 2015.</p >
-
-<p style="text-align:justify">Basak Guler, Kaya Tutuncuoglu, Aylin Yener,<a href="https://basakguler.github.io/BG_ITW_2015.pdf">Maximizing Recommender's Influence in a Social Network: An Information-Theoretic Perspective</a>, Proceedings of the IEEE Information Theory Workshop, ITW'15, Jeju Island, Korea, Oct. 2015.</p >
-
-
-<p style="text-align:justify">Basak Guler, Aylin Yener,<a href="https://basakguler.github.io/BG_DCC_2014.pdf">Compressing Semantic Information with Varying Priorities</a>, Proceedings of the IEEE Data Compression Conference, DCC'14, Snowbird, UT, Mar. 2014. </p >
-
- -->
+<br />
+<br />
 
 
 
+Basak Guler, Deniz G&uuml;nd&uuml;z, Aylin Yener,<a href="https://basakguler.github.io/BG_IT_18.pdf">Lossy Transmission of Correlated Sources over a Multiple Access Channel: Necessary Conditions and Separation Results</a>, IEEE Transactions on Information Theory,  Sep. 2018.  
 
-<br /> 
+<br />
+<br />
 
-<h1><b>Semantic Communication </b></h1>
+Basak Guler, Deniz G&uuml;nd&uuml;z, Aylin Yener,<a href="https://basakguler.github.io/BG_ISIT_17.pdf"> On the Necessary Conditions for Transmitting Correlated Sources over a Multiple Access Channel</a>, IEEE International Symposium on Information Theory, ISIT 2017. 
+
+<br />
+<br />
+
+Basak Guler, Deniz G&uuml;nd&uuml;z, Aylin Yener,<a href="https://basakguler.github.io/BG_ISIT_16.pdf">On Lossy Transmission of Correlated Sources over a Multiple Access Channel</a>, IEEE International Symposium on Information Theory, ISIT  2016.
+
+
+
+<br />
+<br />
+
+Basak Guler, Kaya Tutuncuoglu, Aylin Yener,<a href="https://basakguler.github.io/BG_ITW_2015.pdf">Maximizing Recommender's Influence in a Social Network: An Information-Theoretic Perspective</a>, IEEE Information Theory Workshop, ITW 2015.
+
+<br />
+<br />
+
+Basak Guler, Aylin Yener, Ebrahim MolavianJazi, Prithwish Basu, Ananthram Swami, Carl Andersen, <a href="https://basakguler.github.io/BG_DCC_2016.pdf">Interactive Function Compression with Asymmetric Priors</a>, IEEE Data Compression Conference, DCC 2016. 
+
+<br />
+<br />
+
+Basak Guler, Aylin Yener, <a href="https://basakguler.github.io/BG_DCC_2014.pdf">Compressing Semantic Information with Varying Priorities</a>, IEEE Data Compression Conference, DCC 2014. 
+
+
+</p >
+
+
+
+<h1><b>Semantic Communications </b></h1>
 <br />
 <p style="text-align:justify"> 
 Emerging networks such as the Internet of Things (IoT) are designed to facilitate the interaction of humans with intelligent machines. These networks consist of actors with possibly different <b>characteristics</b>, <b>goals</b>, and <b>interests</b>. Such differences can in turn lead to various interpretations of the received information. I design networks that operate under such ambiguous environments, by leveraging the semantic and social features of information transmission. Unlike conventional communication networks, this necessitates taking into account the personal background and characteristics of the interacting parties. 
@@ -249,7 +445,7 @@ For these networks, reliable communication implies that the intended meaning of 
 In effect, this new generation of networks supports interaction at a level that communicating parties can form social relationships and build trust, which may further affect how the received messages are interpreted. 
 In contrast, communication protocols that operate in the physical layer do not take into account the difference between the meanings of transmitted and recovered messages, but rather are concerned with the engineering problem of reliably communicating sequences of bits to the receiver. 
 These factors together motivate a new approach that molds physical and application layer metrics into one, i.e., a novel performance criterion that takes into account the meanings of the communicated messages. 
-I design mechanisms to achieve this, i.e., how to reliably communicate the meanings of messages through a noisy channel. </p>
+I designed mechanisms to achieve this, i.e., how to reliably communicate the meanings of messages through a noisy channel. </p>
 
 <img src="https://basakguler.github.io/images/semantic.png" height="130px" style="padding:5px;" />     
 <br /> 
@@ -263,23 +459,32 @@ An individual with such influence capability can have a significant impact on in
        
 
 
-<!-- 
-<p style="text-align:justify"> <b>Related publications:</b> <br /></p >
-
-<p style="text-align:justify">Basak Guler, Aylin Yener, and Ananthram Swami, <a href="https://basakguler.github.io/BG_TCCN_18.pdf">The Semantic Communication Game</a>, IEEE Transactions on Cognitive Communications and Networking, vol. 4, no. 4, pp. 787-802, Dec. 2018. </p >  
 
 
-<p style="text-align:justify">Basak Guler, Aylin Yener, Ananthram Swami,<a href="https://basakguler.github.io/BG_ICC_16.pdf">The Semantic Communication Game</a>, Proceedings of the IEEE International Conference on Communications, ICC'16, Kuala Lumpur, Malaysia, May 2016. </p >        
-   
-<p style="text-align:justify">Basak Guler, Aylin Yener,<a href="https://basakguler.github.io/BG_PERCOM_2014.pdf">Semantic Index Assignment</a>, Proceedings of the Sixth International Workshop on Information Quality and Quality of Service for Pervasive Computing (IQ2S'14) in Conjunction with IEEE PERCOM 2014, Budapest, Hungary, Mar. 2014.</p >  
+<p style="text-align:justify"> <b>Related publications:</b> 
 
- -->
+<br />
+<br />  
+
+ Basak Guler, Aylin Yener, and Ananthram Swami,  <a href="https://basakguler.github.io/BG_TCCN_18.pdf">The Semantic Communication Game</a>, IEEE Transactions on Cognitive Communications and Networking, Dec. 2018. 
 
 <br /> 
+<br /> 
+
+Basak Guler, Aylin Yener, and Ananthram Swami,  <a href="https://basakguler.github.io/BG_ICC_16.pdf">The Semantic Communication Game</a>, Proceedings of the IEEE International Conference on Communications, ICC'16. 
+
+<br /> 
+<br />         
+   
+Basak Guler, Aylin Yener, <a href="https://basakguler.github.io/BG_PERCOM_2014.pdf">Semantic Index Assignment</a>, IEEE PERCOM Workshops 2014.
+</p >  
 
 
 
-<h1><b>Heterogeneous Wireless Networks: Interference Management  </b></h1>
+
+
+
+<h1><b>Heterogeneous Wireless Networks and Interference Management  </b></h1>
 <br />
 <p style="text-align:justify"> A heterogeneous wireless network is an environment that consists of cellular base stations of <b>various sizes</b>, <b>coverage areas</b>, and <b>operating protocols</b>. Some of 
 these are installed and maintained by the mobile operator, such as macrocells (cellular towers), while the others are <b>plug-and-play</b> devices installed by the users, such as femtocells. </p>
@@ -294,18 +499,31 @@ these are installed and maintained by the mobile operator, such as macrocells (c
        
 
 
-<!-- 
-<p style="text-align:justify"> <b>Related publications:</b> <br /></p >
+<p style="text-align:justify"> <b>Related publications:</b> 
 
-          <p style="text-align:justify">Basak Guler, Aylin Yener,<a href="https://basakguler.github.io/BG_TWC_2014.pdf">Uplink Interference Management in Coexisting MIMO Femtocell and Macrocell Networks: An Interference Alignment Approach</a>, IEEE Transactions on Wireless Communications, vol. 13, no. 4, pp. 2246-2257, Apr. 2014.</p >
+<br />
+<br />
+
+          Basak Guler, Aylin Yener, <a href="https://basakguler.github.io/BG_TWC_2014.pdf">Uplink Interference Management in Coexisting MIMO Femtocell and Macrocell Networks: An Interference Alignment Approach</a>, IEEE Transactions on Wireless Communications, Apr. 2014.
+
+<br /> 
+<br /> 
+
        
-          <p style="text-align:justify">Basak Guler and Aylin Yener,<a href="https://basakguler.github.io/BG_JSAC_2014.pdf">Selective Interference Alignment for MIMO Cognitive Femtocell Networks</a>, IEEE Journal in Selected Areas in Communications: Cognitive Radio Series, vol. 32, no. 3, pp. 439-450, Mar. 2014.</p >
-      
-          <p style="text-align:justify">Basak Guler and Aylin Yener,<a href="https://basakguler.github.io/BG_ICC_2013.pdf">Selective Interference Alignment for MIMO Femtocell Networks</a>, Proceedings of the IEEE International Conference on Communications, ICC'13, Budapest, Hungary, Jun. 2013. </p >
-        
-          <p style="text-align:justify">Basak Guler and Aylin Yener,<a href="https://basakguler.github.io/BG_Globecom11.pdf">Interference Alignment for Cooperative MIMO Femtocell Networks</a>, Proceedings of the IEEE Global Communications Conference, Globecom'11, Houston, TX, Dec. 2011. </p >
+          Basak Guler and Aylin Yener, <a href="https://basakguler.github.io/BG_JSAC_2014.pdf">Selective Interference Alignment for MIMO Cognitive Femtocell Networks</a>, IEEE Journal in Selected Areas in Communications, Mar. 2014.
 
- -->
+<br /> 
+<br /> 
+
+      
+          Basak Guler and Aylin Yener, <a href="https://basakguler.github.io/BG_ICC_2013.pdf">Selective Interference Alignment for MIMO Femtocell Networks</a>, IEEE International Conference on Communications, ICC 2013. 
+   
+   <br /> 
+<br /> 
+     
+          Basak Guler and Aylin Yener, <a href="https://basakguler.github.io/BG_Globecom11.pdf">Interference Alignment for Cooperative MIMO Femtocell Networks</a>, Globecom 2011. 
+
+</p >
 
 <br />  
         
